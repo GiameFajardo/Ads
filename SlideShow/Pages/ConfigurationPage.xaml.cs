@@ -18,11 +18,19 @@ namespace SlideShow.Pages
     /// <summary>
     /// Interaction logic for ConfigurationPage.xaml
     /// </summary>
-    public partial class ConfigurationPage : Page
+    public partial class ConfigurationPage : BasePage
     {
         public ConfigurationPage()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            this.AnimateOut();
+
+            ((MainWindow)this.Parent).Content = new ImagePage();
         }
     }
 }

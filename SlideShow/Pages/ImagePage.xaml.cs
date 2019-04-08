@@ -18,11 +18,24 @@ namespace SlideShow.Pages
     /// <summary>
     /// Interaction logic for ImagePage.xaml
     /// </summary>
-    public partial class ImagePage : Page
+    public partial class ImagePage : BasePage
     {
         public ImagePage()
         {
             InitializeComponent();
+        }
+        public ImagePage(Color background)
+        {
+            InitializeComponent();
+            Background = new SolidColorBrush(background);
+        }   
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.AnimateOut();
+
+
+            ((MainWindow)this.Parent).Next();
         }
     }
 }
