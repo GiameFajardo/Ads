@@ -19,19 +19,19 @@ namespace SlideShow.Pages
     /// <summary>
     /// Interaction logic for ImagePage.xaml
     /// </summary>
-    public partial class ImagePage : BasePage
+    public partial class AdPage : BasePage
     {
         
-        public ImagePage()
+        public AdPage()
         {
             InitializeComponent();
         }
-        public ImagePage(Color background)
+        public AdPage(Color background)
         {
             InitializeComponent();
             this.Background = new SolidColorBrush(background);
         }
-        public ImagePage(Color background, string media)
+        public AdPage(Color background, string media)
         {
             InitializeComponent();
             this.Background = new SolidColorBrush(background);

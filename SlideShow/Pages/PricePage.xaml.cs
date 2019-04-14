@@ -16,28 +16,13 @@ using System.Windows.Shapes;
 namespace SlideShow.Pages
 {
     /// <summary>
-    /// Interaction logic for ConfigurationPage.xaml
+    /// Interaction logic for PricePage.xaml
     /// </summary>
-    public partial class ConfigurationPage : BasePage
+    public partial class PricePage : Page
     {
-        public ConfigurationPage()
+        public PricePage()
         {
             InitializeComponent();
-            
-        }
-
-       
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-            this.AnimateOut();
-
-        }
-
-        private void mediaContent_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
         }
     }
 }

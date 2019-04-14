@@ -74,7 +74,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\ImagePage.xaml">
+    <Page Include="Pages\AdPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -84,8 +84,8 @@
     <Compile Include="Pages\ConfigurationPage.xaml.cs">
       <DependentUpon>ConfigurationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ImagePage.xaml.cs">
-      <DependentUpon>ImagePage.xaml</DependentUpon>
+    <Compile Include="Pages\AdPage.xaml.cs">
+      <DependentUpon>AdPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

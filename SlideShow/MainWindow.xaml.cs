@@ -1,6 +1,7 @@
 ﻿using SlideShow.Pages;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -30,34 +31,24 @@ namespace SlideShow
         private DispatcherTimer mediaPositionTimer;
         private bool _is_playing;
 
-        public List<ImagePage> Pages { get; set; }
+        public List<AdPage> Pages { get; set; }
         public ConfigurationPage ConfigurationPage { get; set; }
         public int Index { get; set; } = 0;
 
         public MainWindow()
         {
             InitializeComponent();
-            Pages = new List<ImagePage>();
-            ImagePage ip;
+            Pages = new List<AdPage>();
+            AdPage ip;
+            var files = Directory.GetFiles("C:\\Users\\Chu\\Downloads\\Ads");
 
-            ip = new ImagePage(Color.FromRgb(12,12,12), 
-                "C:\\Users\\Chu\\Downloads\\animaciones-lectores.mp4");
-            Pages.Add(ip);
+            foreach (string path in files)
+            {
 
-            ip = new ImagePage(Color.FromRgb(34, 53, 6),
-                "C:\\Users\\Chu\\Downloads\\desk.jpg");
-            Pages.Add(ip);
-
-            //ip = new ImagePage(Color.FromRgb(45, 64, 98));
-            //MediaElement media = new MediaElement();
-            //media.Source = new Uri("C:\\Users\\Chu\\Downloads\\animaciones-lectores.mp4");
-            //media.LoadedBehavior = MediaState.Manual;
-            
-            //ip.Content = media;
-            //media.Play();
-            //media.BufferingEnded += Media_BufferingEnded;
-            //media.BufferingStarted += Media_BufferingStarted;
-            //Pages.Add(ip);
+                ip = new AdPage(Color.FromRgb(12,12,12), 
+                    path);
+                Pages.Add(ip);
+            }
 
 
             this.Content = Pages[Index];
@@ -77,15 +68,6 @@ namespace SlideShow
             {
                 mediaPositionTimer.Stop();
             }
-            // Start it running
-            //this.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(delegate ()
-            //{
-            //    mediaPositionTimer.Start();
-            //    _is_playing = true;
-            //    adMediaElement.Play();
-            //}));
-
-
         }
 
         private void Media_BufferingStarted(object sender, RoutedEventArgs e)

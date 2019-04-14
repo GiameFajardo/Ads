@@ -15,13 +15,6 @@
         <Button Content="Start
                 " HorizontalAlignment="Left" Margin="314,181,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <Button Content="..." HorizontalAlignment="Left" Margin="495,120,0,0" VerticalAlignment="Top" Width="31"/>
-        <MediaElement x:Name="mediaContent" 
-                      HorizontalAlignment="Left" 
-                      Height="100" 
-                      Margin="81,32,0,0" 
-                      VerticalAlignment="Top" Width="100"
-                      BufferingEnded="mediaContent_BufferingEnded"
-                      MouseDown="mediaContent_MouseDown"/>
 
     </Grid>
 </local:BasePage>
