@@ -11,6 +11,16 @@
 
     <Grid>
         <Button Content="Button" HorizontalAlignment="Left" Margin="261,206,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <MediaElement x:Name="mediaContent"
+            HorizontalAlignment="Left" Height="342" Margin="341,52,0,0" VerticalAlignment="Top" Width="449"
+            BufferingEnded="mediaContent_BufferingEnded"
+            BufferingStarted="mediaContent_BufferingStarted"  
+            TouchDown="mediaContent_TouchDown" 
+            TouchUp="mediaContent_TouchUp"    
+            MouseDown="mediaContent_MouseDown"  
+            MediaEnded="mediaContent_MediaEnded"
+            MediaFailed="mediaContent_MediaFailed"          />
+        <Button Content="CONF" HorizontalAlignment="Left" Margin="116,375,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
 
     </Grid>
 </local:BasePage>

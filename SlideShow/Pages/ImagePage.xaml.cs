@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace SlideShow.Pages
 {
@@ -20,6 +21,7 @@ namespace SlideShow.Pages
     /// </summary>
     public partial class ImagePage : BasePage
     {
+        
         public ImagePage()
         {
             InitializeComponent();
@@ -27,8 +29,22 @@ namespace SlideShow.Pages
         public ImagePage(Color background)
         {
             InitializeComponent();
-            Background = new SolidColorBrush(background);
-        }   
+            this.Background = new SolidColorBrush(background);
+        }
+        public ImagePage(Color background, string media)
+        {
+            InitializeComponent();
+            this.Background = new SolidColorBrush(background);
+            this.mediaContent.Source = new Uri(media);
+            this.mediaContent.BufferingEnded += MediaContent_BufferingEnded;
+            //this.mediaContent.LoadedBehavior = MediaState.Manual;
+            //this.mediaContent.Play();
+        }
+
+        private void MediaContent_BufferingEnded(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -36,6 +52,49 @@ namespace SlideShow.Pages
 
 
             ((MainWindow)this.Parent).Next();
+        }
+
+        private void mediaContent_BufferingEnded(object sender, RoutedEventArgs e)
+        {
+            this.mediaContent.LoadedBehavior = MediaState.Manual;
+            this.mediaContent.Play();
+        }
+
+        private void mediaContent_BufferingStarted(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void mediaContent_TouchDown(object sender, TouchEventArgs e)
+        {
+
+        }
+
+        private void mediaContent_TouchUp(object sender, TouchEventArgs e)
+        {
+
+        }
+
+        private void mediaContent_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+            ((MainWindow)this.Parent).Conf();
+        }
+
+        private void mediaContent_MediaEnded(object sender, RoutedEventArgs e)
+        {
+
+            //((MainWindow)this.Parent).Next();
+        }
+
+        private void mediaContent_MediaFailed(object sender, ExceptionRoutedEventArgs e)
+        {
+
         }
     }
 }

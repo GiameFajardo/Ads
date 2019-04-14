@@ -23,6 +23,18 @@ namespace SlideShow.Pages
         public ConfigurationPage()
         {
             InitializeComponent();
+            mediaContent.Source = new Uri("C:\\Users\\Chu\\Downloads\\animaciones-lectores.mp4");
+
+            mediaContent.LoadedBehavior = MediaState.Manual;
+            mediaContent.Play();
+            //this.mediaContent.BufferingEnded += MediaContent_BufferingEnded; ;
+        }
+
+        private void MediaContent_BufferingEnded(object sender, RoutedEventArgs e)
+        {
+
+            this.mediaContent.LoadedBehavior = MediaState.Manual;
+            this.mediaContent.Play();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -31,6 +43,17 @@ namespace SlideShow.Pages
             this.AnimateOut();
 
             ((MainWindow)this.Parent).Content = new ImagePage();
+        }
+
+        private void mediaContent_BufferingEnded(object sender, RoutedEventArgs e)
+        {
+            mediaContent.LoadedBehavior = MediaState.Manual;
+            mediaContent.Play();
+        }
+
+        private void mediaContent_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }
