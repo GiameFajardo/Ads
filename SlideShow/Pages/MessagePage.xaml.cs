@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,17 +22,41 @@ namespace SlideShow.Pages
     /// </summary>
     public partial class MessagePage : BasePage
     {
-        public string Message { get; set; } = "TEST";
+        private string _message = "TEST";
+        public string Message {
+            get { return _message; }
+            set
+            {
+                _message = value;
+                OnPropertyChanged();
+            }
+        } 
         public MessagePage()
         {
             InitializeComponent();
-
+            DataContext = this;
             txtMessage.Text = Message;
         }
         public MessagePage(string message)
         {
             InitializeComponent();
+            DataContext = this;
             txtMessage.Text = Message = message;
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Raises this object's PropertyChanged event.
+        /// </summary>
+        /// <param name="propertyName">The property that has a new value.</param>
+        protected void OnPropertyChanged([CallerMemberName]string propertyName = null)
+        {
+            PropertyChangedEventHandler handler = this.PropertyChanged;
+            if (handler != null)
+            {
+                var e = new PropertyChangedEventArgs(propertyName);
+                handler(this, e);
+            }
         }
     }
 }
