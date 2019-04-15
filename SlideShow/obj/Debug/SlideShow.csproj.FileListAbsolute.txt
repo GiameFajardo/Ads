@@ -22,3 +22,4 @@ C:\Users\Chu\Source\Repos\SlideShow\SlideShow\obj\Debug\SlideShow.csproj.CoreCom
 C:\Users\Chu\Source\Repos\SlideShow\SlideShow\obj\Debug\SlideShow.csproj.CopyComplete
 C:\Users\Chu\Source\Repos\SlideShow\SlideShow\obj\Debug\SlideShow.exe
 C:\Users\Chu\Source\Repos\SlideShow\SlideShow\obj\Debug\SlideShow.pdb
+C:\Users\Chu\Source\Repos\SlideShow\SlideShow\obj\Debug\SlideShow.csprojAssemblyReference.cache

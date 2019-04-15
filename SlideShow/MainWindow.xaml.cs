@@ -78,7 +78,9 @@ namespace SlideShow
 
         public void ReLoadAds()
         {
-            StartStopTimer();
+            //StartStopTimer();
+            mediaPositionTimer.Start();
+            _is_playing = true;
 
             Index = 0;
 
@@ -138,6 +140,10 @@ namespace SlideShow
                     NextAd();
                 }
             }
+            if (!_is_playing)
+            {
+                
+            }
         }
 
         public void ShowConf()
@@ -147,10 +153,21 @@ namespace SlideShow
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.SystemKey == Key.F10)
+            switch (e.Key)
             {
-                ShowConf();
-                StartStopTimer();
+                case Key.F6:
+                    {
+                        StartStopTimer();
+                        ShowConf();
+                    }
+                    break;
+                case Key.F5:
+                    {
+                        ReLoadAds();
+                    }
+                    break;
+                default:
+                    break;
             }
         }
     }
