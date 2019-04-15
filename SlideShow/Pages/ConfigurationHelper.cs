@@ -11,27 +11,41 @@ namespace SlideShow.Pages
     {
         public static void ChangeFilePath(string newPath)
         {
-            Configuration configManager = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            KeyValueConfigurationCollection confCollection = configManager.AppSettings.Settings;
-
-            confCollection["FilePath"].Value =newPath;
-
-
-            configManager.Save(ConfigurationSaveMode.Modified);
-            ConfigurationManager.RefreshSection(configManager.AppSettings.SectionInformation.Name);
-
+            ChangeConfValue("FilePath", newPath);
+        }
+        public static void ChangeAdsDuration(string duration)
+        {
+            ChangeConfValue("AdsDuration", duration);
         }
         public static string GetAdsPath()
         {
             var conf = GetConfigValue("FilePath");
              
             return conf;
+        }public static double GetAdsDuration()
+        {
+            var conf = GetConfigValue("AdsDuration");
+            double duration = double.Parse(conf);
+            
+            return duration;
         }
-        public static string GetConfigValue(string key)
+        private static string GetConfigValue(string key)
         {
             var conf = ConfigurationManager.AppSettings[key];
 
             return conf;
+        }
+        private static void ChangeConfValue(string key,string value)
+        {
+            Configuration configManager = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            KeyValueConfigurationCollection confCollection = configManager.AppSettings.Settings;
+
+            confCollection[key].Value = value;
+
+
+            configManager.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection(configManager.AppSettings.SectionInformation.Name);
+
         }
     }
 }

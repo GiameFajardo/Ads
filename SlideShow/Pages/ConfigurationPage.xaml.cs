@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,10 +23,12 @@ namespace SlideShow.Pages
     public partial class ConfigurationPage : BasePage
     {
         public string SelectedPath { get; set; }
+        public string SelectedDuration { get; set; }
         public ConfigurationPage()
         {
             InitializeComponent();
-            txtPath.Text = ConfigurationHelper.GetAdsPath();
+            txtPath.Text = SelectedPath = ConfigurationHelper.GetAdsPath();
+            txtDuration.Text = SelectedDuration = ConfigurationHelper.GetAdsDuration().ToString();
         }
 
        
@@ -33,6 +36,7 @@ namespace SlideShow.Pages
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ConfigurationHelper.ChangeFilePath(SelectedPath);
+            ConfigurationHelper.ChangeAdsDuration(SelectedDuration);
             ((MainWindow)(this.Parent)).ReLoadAds();
             this.AnimateOut();
             //((MainWindow)(this.Parent)).StartStopTimer();
@@ -62,6 +66,15 @@ namespace SlideShow.Pages
             }
             
            
+        }
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+        private void TxtDuration_KeyDown(object sender, KeyEventArgs e)
+        {
+
         }
     }
 }

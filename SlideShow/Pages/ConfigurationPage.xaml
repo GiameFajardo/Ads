@@ -19,6 +19,9 @@
                 Click="btnGetNewPath_Click"
                 Content="..." HorizontalAlignment="Left" Margin="495,120,0,0" VerticalAlignment="Top" Width="31"/>
         <Button x:Name="btnReload" Click="btnReload_Click" Content="Reload&#xD;&#xA;" HorizontalAlignment="Left" Margin="194,181,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="txtDuration" KeyDown="TxtDuration_KeyDown" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="23" Margin="258,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80"/>
+        <TextBlock Text="Slide duration
+               " HorizontalAlignment="Left" Margin="164,149,0,0" VerticalAlignment="Top" Width="89"/>
 
     </Grid>
 </local:BasePage>

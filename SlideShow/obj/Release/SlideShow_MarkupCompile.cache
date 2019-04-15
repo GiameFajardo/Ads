@@ -4,11 +4,11 @@
 winexe
 C#
 .cs
-C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\
+C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Release\
 SlideShow
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\App.xaml
 4-603042542
 
@@ -16,5 +16,5 @@ C:\Users\gfajardo\Source\Repos\Ads\SlideShow\App.xaml
 152042404548
 MainWindow.xaml;Pages\ConfigurationPage.xaml;Pages\AdPage.xaml;Pages\PricePage.xaml;
 
-False
+True
 

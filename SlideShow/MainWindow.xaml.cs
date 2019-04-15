@@ -39,7 +39,7 @@ namespace SlideShow
         public MainWindow()
         {
             InitializeComponent();
-
+            defaultSeconds = ConfigurationHelper.GetAdsDuration();
             LoadAds();
 
             ConfigurationPage = new ConfigurationPage();
@@ -62,7 +62,8 @@ namespace SlideShow
         {
             AdsPages = new List<AdPage>();
             AdPage ip;
-            var files = Directory.GetFiles(ConfigurationHelper.GetAdsPath());
+            string dirPath = ConfigurationHelper.GetAdsPath();
+            var files = Directory.GetFiles(dirPath);
 
             foreach (string path in files)
             {
