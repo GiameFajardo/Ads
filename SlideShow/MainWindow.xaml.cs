@@ -31,25 +31,28 @@ namespace SlideShow
         private double mediaDuration;
         private DispatcherTimer mediaPositionTimer;
         private bool _is_playing;
+        private bool hasWrongPath = false;
 
         public List<AdPage> AdsPages { get; set; }
         public ConfigurationPage ConfigurationPage { get; set; }
+        public MessagePage MessagePage { get; set; }
         public int Index { get; set; } = 0;
 
         public MainWindow()
         {
             InitializeComponent();
+            InitializeTimer();
+
+            ConfigurationPage = new ConfigurationPage();
+            MessagePage = new MessagePage();
             defaultSeconds = ConfigurationHelper.GetAdsDuration();
             LoadAds();
 
-            ConfigurationPage = new ConfigurationPage();
-
-            ÌnitializeTimer();
             StartStopTimer();
             
         }
 
-        private void ÌnitializeTimer()
+        private void InitializeTimer()
         {
             mediaPositionTimer = new DispatcherTimer();
 
@@ -63,7 +66,8 @@ namespace SlideShow
             AdsPages = new List<AdPage>();
             AdPage ip;
             string dirPath = ConfigurationHelper.GetAdsPath();
-            var files = Directory.GetFiles(dirPath);
+
+            string[] files = GetFiles(dirPath);
 
             foreach (string path in files)
             {
@@ -73,8 +77,27 @@ namespace SlideShow
                 ip.KeyDown += Window_KeyDown;
                 AdsPages.Add(ip);
             }
+            if (AdsPages.Count>0)
+            {
+                this.Content = AdsPages[Index];
+            }
+        }
 
-            this.Content = AdsPages[Index];
+        private string[] GetFiles(string dirPath)
+        {
+            string[] files = new string[]{ };
+            try
+            {
+                files = Directory.GetFiles(dirPath);
+                hasWrongPath = false;
+            }
+            catch (Exception)
+            {
+                hasWrongPath = true;
+                ShowMessage("Wrong path");
+                mediaPositionTimer.Stop();
+            }
+            return files;
         }
 
         public void ReLoadAds()
@@ -120,30 +143,39 @@ namespace SlideShow
 
         private void positionTimerTick(object sender, EventArgs e)
         {
-                var naturalDuration = AdsPages[Index].mediaContent.NaturalDuration;
-
-            currentDuration += mediaPositionTimer.Interval.TotalSeconds;
-            if (naturalDuration.HasTimeSpan)
+            if (!hasWrongPath)
             {
 
-                totalDuration = AdsPages[Index].mediaContent.Position.TotalSeconds;
+                var naturalDuration = AdsPages[Index].mediaContent.NaturalDuration;
 
-                mediaDuration = AdsPages[Index].mediaContent.NaturalDuration.TimeSpan.TotalSeconds;
-                if (totalDuration >= mediaDuration)
+                currentDuration += mediaPositionTimer.Interval.TotalSeconds;
+                if (naturalDuration.HasTimeSpan)
                 {
-                    NextAd();
+
+                    totalDuration = AdsPages[Index].mediaContent.Position.TotalSeconds;
+
+                    mediaDuration = AdsPages[Index].mediaContent.NaturalDuration.TimeSpan.TotalSeconds;
+                    if (totalDuration >= mediaDuration)
+                    {
+                        NextAd();
+                    }
+                }
+                else
+                {
+                    if (currentDuration >= defaultSeconds)
+                    {
+                        NextAd();
+                    }
+                }
+                if (!_is_playing)
+                {
+                
                 }
             }
             else
             {
-                if (currentDuration >= defaultSeconds)
-                {
-                    NextAd();
-                }
-            }
-            if (!_is_playing)
-            {
-                
+                mediaPositionTimer.Stop();
+                ShowMessage("Wrong path");
             }
         }
 
@@ -151,7 +183,11 @@ namespace SlideShow
         {
             this.Content = ConfigurationPage;
         }
-
+        public void ShowMessage(string message)
+        {
+            MessagePage.Message = message;
+            this.Content = MessagePage;
+        }
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.Key)

@@ -28,10 +28,10 @@ C:\Users\gfajardo\Source\Repos\Ads\SlideShow\bin\Debug\SlideShow.exe
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\bin\Debug\SlideShow.pdb
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\bin\Debug\AvalonLibrary.dll
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\bin\Debug\AvalonLibrary.xml
-C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\SlideShow.csprojAssemblyReference.cache
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\MainWindow.g.cs
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\Pages\ConfigurationPage.g.cs
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\Pages\AdPage.g.cs
+C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\Pages\MessagePage.g.cs
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\Pages\PricePage.g.cs
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\App.g.cs
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\GeneratedInternalTypeHelper.g.cs
@@ -40,6 +40,7 @@ C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\SlideShow_MarkupCompile.l
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\MainWindow.baml
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\Pages\ConfigurationPage.baml
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\Pages\AdPage.baml
+C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\Pages\MessagePage.baml
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\Pages\PricePage.baml
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\SlideShow.g.resources
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\SlideShow.Properties.Resources.resources

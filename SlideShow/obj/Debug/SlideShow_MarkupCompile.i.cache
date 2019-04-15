@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Chu\Source\Repos\SlideShow\SlideShow\obj\Debug\
+C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\
 SlideShow
 none
 false
 DEBUG;TRACE
-C:\Users\Chu\Source\Repos\SlideShow\SlideShow\App.xaml
-4-603042542
+C:\Users\gfajardo\Source\Repos\Ads\SlideShow\App.xaml
+51301617910
 
-17-5470482
-15445399104
-MainWindow.xaml;Pages\ConfigurationPage.xaml;Pages\AdPage.xaml;Pages\PricePage.xaml;
+151348757070
+152042404548
+MainWindow.xaml;Pages\ConfigurationPage.xaml;Pages\AdPage.xaml;Pages\MessagePage.xaml;Pages\PricePage.xaml;
 
-False
+True
 

@@ -38,7 +38,7 @@ namespace SlideShow.Pages
             ConfigurationHelper.ChangeFilePath(SelectedPath);
             ConfigurationHelper.ChangeAdsDuration(SelectedDuration);
             ((MainWindow)(this.Parent)).ReLoadAds();
-            this.AnimateOut();
+            //this.AnimateOut();
             //((MainWindow)(this.Parent)).StartStopTimer();
 
         }
@@ -74,7 +74,12 @@ namespace SlideShow.Pages
         }
         private void TxtDuration_KeyDown(object sender, KeyEventArgs e)
         {
+            SelectedDuration = txtDuration.Text;
+        }
 
+        private void TxtDuration_KeyUp(object sender, KeyEventArgs e)
+        {
+            SelectedDuration = txtDuration.Text;
         }
     }
 }
