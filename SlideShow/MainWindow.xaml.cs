@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.Configuration;
 
 namespace SlideShow
 {
@@ -31,59 +32,78 @@ namespace SlideShow
         private DispatcherTimer mediaPositionTimer;
         private bool _is_playing;
 
-        public List<AdPage> Pages { get; set; }
+        public List<AdPage> AdsPages { get; set; }
         public ConfigurationPage ConfigurationPage { get; set; }
         public int Index { get; set; } = 0;
 
         public MainWindow()
         {
             InitializeComponent();
-            Pages = new List<AdPage>();
+
+            LoadAds();
+
+            ConfigurationPage = new ConfigurationPage();
+
+            ÌnitializeTimer();
+            StartStopTimer();
+            
+        }
+
+        private void ÌnitializeTimer()
+        {
+            mediaPositionTimer = new DispatcherTimer();
+
+            // Set up the timer     
+            mediaPositionTimer.Interval = TimeSpan.FromSeconds(1);
+            mediaPositionTimer.Tick += new EventHandler(positionTimerTick);
+        }
+
+        public void LoadAds()
+        {
+            AdsPages = new List<AdPage>();
             AdPage ip;
-            var files = Directory.GetFiles("C:\\Users\\Chu\\Downloads\\Ads");
+            var files = Directory.GetFiles(ConfigurationHelper.GetAdsPath());
 
             foreach (string path in files)
             {
 
-                ip = new AdPage(Color.FromRgb(12,12,12), 
+                ip = new AdPage(Color.FromRgb(12, 12, 12),
                     path);
-                Pages.Add(ip);
+                ip.KeyDown += Window_KeyDown;
+                AdsPages.Add(ip);
             }
 
+            this.Content = AdsPages[Index];
+        }
 
-            this.Content = Pages[Index];
+        public void ReLoadAds()
+        {
+            StartStopTimer();
 
-            ConfigurationPage = new ConfigurationPage();
+            Index = 0;
 
+            LoadAds();
+        }
 
-            if (mediaPositionTimer == null)
+        public void StartStopTimer()
+        {
+                
+            if (!_is_playing)
             {
-                mediaPositionTimer = new DispatcherTimer();
-                // Set up the timer     
-                mediaPositionTimer.Interval = TimeSpan.FromSeconds(1);
-                mediaPositionTimer.Tick += new EventHandler(positionTimerTick);
                 mediaPositionTimer.Start();
+                _is_playing = true;
             }
             else
             {
                 mediaPositionTimer.Stop();
+                _is_playing = false;
             }
         }
-
-        private void Media_BufferingStarted(object sender, RoutedEventArgs e)
-        {
-          
-        }
-
-        private void Media_BufferingEnded(object sender, RoutedEventArgs e)
+        
+        public void NextAd()
         {
             
-        }
-
-        public void Next()
-        {
-            
-            if (Index >= Pages.Count - 1)
+            if (Index >= AdsPages.Count - 1)
             {
                 Index = 0;
             }
@@ -91,38 +111,47 @@ namespace SlideShow
             {
                 Index++;
             }
-            this.Content = Pages[Index];
+            this.Content = AdsPages[Index];
             currentDuration = 0;
         }
 
         private void positionTimerTick(object sender, EventArgs e)
         {
-                var naturalDuration = Pages[Index].mediaContent.NaturalDuration;
+                var naturalDuration = AdsPages[Index].mediaContent.NaturalDuration;
 
             currentDuration += mediaPositionTimer.Interval.TotalSeconds;
             if (naturalDuration.HasTimeSpan)
             {
 
-                totalDuration = Pages[Index].mediaContent.Position.TotalSeconds;
+                totalDuration = AdsPages[Index].mediaContent.Position.TotalSeconds;
 
-                mediaDuration = Pages[Index].mediaContent.NaturalDuration.TimeSpan.TotalSeconds;
+                mediaDuration = AdsPages[Index].mediaContent.NaturalDuration.TimeSpan.TotalSeconds;
                 if (totalDuration >= mediaDuration)
                 {
-                    Next();
+                    NextAd();
                 }
             }
             else
             {
                 if (currentDuration >= defaultSeconds)
                 {
-                    Next();
+                    NextAd();
                 }
             }
         }
 
-        public void Conf()
+        public void ShowConf()
         {
             this.Content = ConfigurationPage;
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.SystemKey == Key.F10)
+            {
+                ShowConf();
+                StartStopTimer();
+            }
         }
     }
 }

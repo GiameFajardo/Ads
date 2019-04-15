@@ -11,10 +11,14 @@
 
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="164,123,0,0" TextWrapping="Wrap" Text="Path" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="218,116,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="272"/>
+        <TextBox x:Name="txtPath" IsEnabled="False"
+                 HorizontalAlignment="Left" Height="23" Margin="218,116,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="272"/>
         <Button Content="Start
                 " HorizontalAlignment="Left" Margin="314,181,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Button Content="..." HorizontalAlignment="Left" Margin="495,120,0,0" VerticalAlignment="Top" Width="31"/>
+        <Button x:Name="btnGetNewPath" 
+                Click="btnGetNewPath_Click"
+                Content="..." HorizontalAlignment="Left" Margin="495,120,0,0" VerticalAlignment="Top" Width="31"/>
+        <Button x:Name="btnReload" Click="btnReload_Click" Content="Reload&#xD;&#xA;" HorizontalAlignment="Left" Margin="194,181,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </local:BasePage>

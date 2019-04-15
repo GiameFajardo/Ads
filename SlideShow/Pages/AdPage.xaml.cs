@@ -51,7 +51,7 @@ namespace SlideShow.Pages
             this.AnimateOut();
 
 
-            ((MainWindow)this.Parent).Next();
+            ((MainWindow)this.Parent).NextAd();
         }
 
         private void mediaContent_BufferingEnded(object sender, RoutedEventArgs e)
@@ -83,7 +83,7 @@ namespace SlideShow.Pages
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
 
-            ((MainWindow)this.Parent).Conf();
+            ((MainWindow)this.Parent).ShowConf();
         }
 
         private void mediaContent_MediaEnded(object sender, RoutedEventArgs e)
