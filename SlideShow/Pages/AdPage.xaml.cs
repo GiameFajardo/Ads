@@ -36,24 +36,7 @@ namespace SlideShow.Pages
             InitializeComponent();
             this.Background = new SolidColorBrush(background);
             this.mediaContent.Source = new Uri(media);
-            this.mediaContent.BufferingEnded += MediaContent_BufferingEnded;
-            //this.mediaContent.LoadedBehavior = MediaState.Manual;
-            //this.mediaContent.Play();
         }
-
-        private void MediaContent_BufferingEnded(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.AnimateOut();
-
-
-            ((MainWindow)this.Parent).NextAd();
-        }
-
         private void mediaContent_BufferingEnded(object sender, RoutedEventArgs e)
         {
             this.mediaContent.LoadedBehavior = MediaState.Manual;
@@ -79,13 +62,6 @@ namespace SlideShow.Pages
         {
 
         }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-            ((MainWindow)this.Parent).ShowConf();
-        }
-
         private void mediaContent_MediaEnded(object sender, RoutedEventArgs e)
         {
 
@@ -94,7 +70,7 @@ namespace SlideShow.Pages
 
         private void mediaContent_MediaFailed(object sender, ExceptionRoutedEventArgs e)
         {
-
+            ((MainWindow)this.Parent).RemovePage(this);
         }
     }
 }

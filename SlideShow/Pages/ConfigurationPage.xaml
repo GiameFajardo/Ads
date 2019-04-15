@@ -10,20 +10,21 @@
       Title="ConfigurationPage">
 
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="164,123,0,0" TextWrapping="Wrap" Text="Path" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtPath" IsEnabled="False"
-                 HorizontalAlignment="Left" Height="23" Margin="218,116,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="272"/>
-        <Button Content="Start
-                " HorizontalAlignment="Left" Margin="314,181,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Button x:Name="btnGetNewPath" 
+        <TextBlock HorizontalAlignment="Left" Margin="73,123,0,0" FontSize="30"
+                   TextWrapping="Wrap" Text="Path" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtPath" IsEnabled="False" FontSize="30"
+                 HorizontalAlignment="Left" Height="40" Margin="164,123,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="486"/>
+        <Button Content="Start" FontSize="30"
+                HorizontalAlignment="Left" Margin="367,258,0,0" VerticalAlignment="Top" Width="349" Click="Button_Click" Height="57"/>
+        <Button x:Name="btnGetNewPath" FontSize="30"
                 Click="btnGetNewPath_Click"
-                Content="..." HorizontalAlignment="Left" Margin="495,120,0,0" VerticalAlignment="Top" Width="31"/>
-        <Button x:Name="btnReload" Click="btnReload_Click" Content="Reload&#xD;&#xA;" HorizontalAlignment="Left" Margin="194,181,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox x:Name="txtDuration" 
+                Content="..." HorizontalAlignment="Left" Margin="672,121,0,0" VerticalAlignment="Top" Width="44" Height="37"/>
+        <Button x:Name="btnReload" Click="btnReload_Click" Content="Reload&#xD;&#xA;" HorizontalAlignment="Left" Margin="51,344,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="txtDuration" FontSize="30"
                  KeyDown="TxtDuration_KeyDown" KeyUp="TxtDuration_KeyUp"
-                 PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="23" Margin="258,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80"/>
-        <TextBlock Text="Slide duration
-               " HorizontalAlignment="Left" Margin="164,149,0,0" VerticalAlignment="Top" Width="89"/>
+                 PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="40" Margin="300,185,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="213"/>
+        <TextBlock Text="Slide duration" FontSize="30"
+                   HorizontalAlignment="Left" Margin="73,185,0,0" VerticalAlignment="Top" Width="193"/>
 
     </Grid>
 </local:BasePage>

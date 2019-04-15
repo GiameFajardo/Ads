@@ -66,12 +66,11 @@ namespace SlideShow
             AdsPages = new List<AdPage>();
             AdPage ip;
             string dirPath = ConfigurationHelper.GetAdsPath();
-
+            defaultSeconds = ConfigurationHelper.GetAdsDuration();
             string[] files = GetFiles(dirPath);
 
             foreach (string path in files)
             {
-
                 ip = new AdPage(Color.FromRgb(12, 12, 12),
                     path);
                 ip.KeyDown += Window_KeyDown;
@@ -99,7 +98,10 @@ namespace SlideShow
             }
             return files;
         }
-
+        public void RemovePage(AdPage page)
+        {
+            AdsPages.Remove(page);
+        }
         public void ReLoadAds()
         {
             //StartStopTimer();
