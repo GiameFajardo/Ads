@@ -11,7 +11,7 @@
 
     <Grid>
         <TextBlock x:Name="txtMessage" HorizontalAlignment="Left" Margin="303,220,0,0" TextWrapping="Wrap" 
-                   Text="{Binding Path=Message}" VerticalAlignment="Top"/>
+                   Text="{Binding Path=Message, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" VerticalAlignment="Top"/>
 
     </Grid>
 </local:BasePage>

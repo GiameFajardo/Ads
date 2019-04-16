@@ -17,6 +17,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Configuration;
+using System.Text.RegularExpressions;
+using SlideShow.Context;
 
 namespace SlideShow
 {
@@ -36,6 +38,7 @@ namespace SlideShow
         public List<AdPage> AdsPages { get; set; }
         public ConfigurationPage ConfigurationPage { get; set; }
         public MessagePage MessagePage { get; set; }
+        public PricePage PricePage { get; set; }
         public int Index { get; set; } = 0;
 
         public MainWindow()
@@ -43,8 +46,11 @@ namespace SlideShow
             InitializeComponent();
             InitializeTimer();
 
+            txtSearch.Focus();
+             
             ConfigurationPage = new ConfigurationPage();
             MessagePage = new MessagePage();
+            PricePage = new PricePage();
             defaultSeconds = ConfigurationHelper.GetAdsDuration();
             LoadAds();
 
@@ -185,6 +191,13 @@ namespace SlideShow
         {
             this.Content = ConfigurationPage;
         }
+        public void ShowPrice()
+        {
+            DataAccess da = new DataAccess();
+            Item i = da.GetItem("APP123");
+            PricePage.Item = i;
+            this.Content = PricePage;
+        }
         public void ShowMessage(string message)
         {
             MessagePage.Message = message;
@@ -205,9 +218,22 @@ namespace SlideShow
                         ReLoadAds();
                     }
                     break;
+                case Key.Enter:
+                    {
+                        var a = txtSearch.Text;
+                        ShowPrice();
+                    }
+                    break;
                 default:
                     break;
             }
+        }
+
+        private void TxtSearch_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

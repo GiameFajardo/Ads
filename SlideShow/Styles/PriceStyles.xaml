@@ -1,0 +1,21 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:SlideShow.Styles">
+
+    <Style x:Key="ItemDescription" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="50"/>
+        <Setter Property="FontWeight" Value="DemiBold"/>
+        <Setter Property="Foreground" Value="Black"/>
+    </Style>
+    <Style x:Key="Price" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="50"/>
+        <Setter Property="FontWeight" Value="ExtraBold"/>
+        <Setter Property="Foreground" Value="blue"/>
+    </Style>
+    <Style x:Key="OldPrice" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="TextDecorations" Value="Strikethrough"/>
+        <Setter Property="Foreground" Value="Red"/>
+    </Style>
+</ResourceDictionary>

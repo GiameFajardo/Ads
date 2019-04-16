@@ -20,15 +20,16 @@ namespace SlideShow.Pages
     /// <summary>
     /// Interaction logic for MessagePage.xaml
     /// </summary>
-    public partial class MessagePage : BasePage
+    public partial class MessagePage : BasePage, INotifyPropertyChanged
     {
-        private string _message = "TEST";
+        private string _message;// = "TEST";
         public string Message {
             get { return _message; }
             set
             {
                 _message = value;
-                OnPropertyChanged();
+                OnPropertyChanged("Message");
+                
             }
         } 
         public MessagePage()

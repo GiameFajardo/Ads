@@ -25,6 +25,7 @@
                  PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="40" Margin="300,185,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="213"/>
         <TextBlock Text="Slide duration" FontSize="30"
                    HorizontalAlignment="Left" Margin="73,185,0,0" VerticalAlignment="Top" Width="193"/>
+        <Button x:Name="btnPrice" Content="Button" HorizontalAlignment="Left" Margin="287,380,0,0" VerticalAlignment="Top" Width="75" Click="BtnPrice_Click"/>
 
     </Grid>
 </local:BasePage>

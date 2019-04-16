@@ -81,5 +81,10 @@ namespace SlideShow.Pages
         {
             SelectedDuration = txtDuration.Text;
         }
+
+        private void BtnPrice_Click(object sender, RoutedEventArgs e)
+        {
+            ((MainWindow)(this.Parent)).ShowPrice();
+        }
     }
 }

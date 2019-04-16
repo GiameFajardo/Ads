@@ -49,4 +49,6 @@ C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\SlideShow.csproj.CoreComp
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\SlideShow.csproj.CopyComplete
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\SlideShow.exe
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\SlideShow.pdb
-C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\SlideShow.csprojAssemblyReference.cache
+C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\Styles\PriceStyles.baml
+C:\Users\gfajardo\Source\Repos\Ads\SlideShow\bin\Debug\Dapper.dll
+C:\Users\gfajardo\Source\Repos\Ads\SlideShow\bin\Debug\Dapper.xml
