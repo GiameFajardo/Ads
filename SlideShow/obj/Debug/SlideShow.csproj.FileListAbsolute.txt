@@ -52,3 +52,4 @@ C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\SlideShow.pdb
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\Styles\PriceStyles.baml
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\bin\Debug\Dapper.dll
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\bin\Debug\Dapper.xml
+C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\SlideShow.csprojAssemblyReference.cache

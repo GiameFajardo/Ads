@@ -84,7 +84,7 @@ namespace SlideShow.Pages
 
         private void BtnPrice_Click(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)(this.Parent)).ShowPrice();
+            ((MainWindow)(this.Parent)).ShowPrice("APP123");
         }
     }
 }

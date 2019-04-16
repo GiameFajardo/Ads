@@ -35,7 +35,7 @@ namespace SlideShow.Pages
             }
         }
 
-        private string _ItemDescription = "IMPRESOR (MU) CANON PIXMA G2110 LAM (2313C004AB)";
+        private string _ItemDescription = "";
         public string ItemDescription
         {
             get
@@ -49,7 +49,7 @@ namespace SlideShow.Pages
             }
         }
 
-        private double _Price = 145.45d;
+        private double _Price = 0d;
         public double Price
         {
             get { return _Price; }
@@ -60,7 +60,7 @@ namespace SlideShow.Pages
             }
         }
 
-        private double _OldPrice = 121.20;
+        private double _OldPrice = 0d;
         public double OldPrice
         {
             get { return _OldPrice; }

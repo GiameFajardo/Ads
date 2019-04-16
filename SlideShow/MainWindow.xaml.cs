@@ -34,6 +34,7 @@ namespace SlideShow
         private DispatcherTimer mediaPositionTimer;
         private bool _is_playing;
         private bool hasWrongPath = false;
+        private bool showingPrice;
 
         public List<AdPage> AdsPages { get; set; }
         public ConfigurationPage ConfigurationPage { get; set; }
@@ -136,7 +137,7 @@ namespace SlideShow
         
         public void NextAd()
         {
-            
+            showingPrice = false;
             if (Index >= AdsPages.Count - 1)
             {
                 Index = 0;
@@ -191,12 +192,20 @@ namespace SlideShow
         {
             this.Content = ConfigurationPage;
         }
-        public void ShowPrice()
+        public void ShowPrice(string filter)
         {
             DataAccess da = new DataAccess();
-            Item i = da.GetItem("APP123");
-            PricePage.Item = i;
-            this.Content = PricePage;
+            Item i = da.GetItem(filter);
+            if (i != null)
+            {
+
+                PricePage.Item = i;
+                this.Content = PricePage;
+            }
+            else
+            {
+                ShowMessage("Lectura no valida.");
+            }
         }
         public void ShowMessage(string message)
         {
@@ -205,6 +214,9 @@ namespace SlideShow
         }
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
+            
+
+
             switch (e.Key)
             {
                 case Key.F6:
@@ -221,7 +233,8 @@ namespace SlideShow
                 case Key.Enter:
                     {
                         var a = txtSearch.Text;
-                        ShowPrice();
+                        ShowPrice(a);
+                        showingPrice = true;
                     }
                     break;
                 default:
@@ -234,6 +247,22 @@ namespace SlideShow
 
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void Window_TextInput(object sender, TextCompositionEventArgs e)
+            {
+            if (showingPrice)
+            {
+
+                        txtSearch.Text = string.Empty;
+            }
+            else
+            {
+
+            txtSearch.Text += e.Text;
+            }
+
+
         }
     }
 }
