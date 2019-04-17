@@ -62,5 +62,44 @@ namespace SlideShow.Animation
             // Wait for it to finish
             await Task.Delay((int)(seconds * 1000));
         }
+
+
+        public static async Task SlideAndFadeInOut(this Page page, float seconds)
+        {
+            //Create the storyboard
+            var sb = new Storyboard();
+
+            //Add slide from right animation
+            sb.AddSlideFromRight(seconds, page.WindowWidth);
+
+            //Add fade in animation
+            sb.AddFadeIn(seconds);
+
+            // Start animation 
+            sb.Begin(page);
+
+            // Make page visibility
+            page.Visibility = Visibility.Visible;
+
+            // Wait for it to finish
+            await Task.Delay((int)(seconds * 1000));
+
+
+
+            ////Add slide from right animation
+            //sb.AddSlideToLeft(seconds, page.WindowWidth);
+
+            ////Add fade in animation
+            //sb.AddFadeOut(seconds);
+
+            //// Start animation 
+            //sb.Begin(page);
+
+            //// Make page visibility
+            //page.Visibility = Visibility.Visible;
+
+            //// Wait for it to finish
+            //await Task.Delay((int)(seconds * 500));
+        }
     }
 }

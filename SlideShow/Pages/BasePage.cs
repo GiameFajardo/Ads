@@ -22,7 +22,7 @@ namespace SlideShow.Pages
         /// <summary>
         /// The time any animation takes to complete
         /// </summary>
-        public float SlideSeconds { get; set; } = 1f;
+        public float SlideSeconds { get; set; } = 2f;
         #endregion
         #region Contructor
         public BasePage()
@@ -63,7 +63,7 @@ namespace SlideShow.Pages
             {
                 case PageAnimation.SlideAndFadeInFromRight:
 
-                    await this.SlideAndFadeInFromRignt(this.SlideSeconds);
+                    await this.SlideAndFadeInOut(this.SlideSeconds);
 
                     break;
                 

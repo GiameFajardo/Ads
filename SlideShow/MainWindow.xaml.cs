@@ -78,7 +78,7 @@ namespace SlideShow
 
             foreach (string path in files)
             {
-                ip = new AdPage(Color.FromRgb(12, 12, 12),
+                ip = new AdPage(Color.FromRgb(255, 255, 255),
                     path);
                 ip.KeyDown += Window_KeyDown;
                 AdsPages.Add(ip);
