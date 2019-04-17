@@ -195,17 +195,25 @@ namespace SlideShow
         public void ShowPrice(string filter)
         {
             DataAccess da = new DataAccess();
-            Item i = da.GetItem(filter);
-            if (i != null)
+            try
             {
+                Item i = da.GetItem(filter);
+                if (i != null)
+                {
 
-                PricePage.Item = i;
-                this.Content = PricePage;
+                    PricePage.Item = i;
+                    this.Content = PricePage;
+                }
+                else
+                {
+                    ShowMessage("Lectura no valida.");
+                }
             }
-            else
+            catch (Exception ex)
             {
                 ShowMessage("Lectura no valida.");
             }
+           
         }
         public void ShowMessage(string message)
         {
@@ -254,12 +262,12 @@ namespace SlideShow
             if (showingPrice)
             {
 
-                        txtSearch.Text = string.Empty;
+                txtSearch.Text = string.Empty;
             }
             else
             {
 
-            txtSearch.Text += e.Text;
+                txtSearch.Text += e.Text;
             }
 
 

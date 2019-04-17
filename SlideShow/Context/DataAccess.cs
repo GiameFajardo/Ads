@@ -12,10 +12,19 @@ namespace SlideShow.Context
     {
         public Item GetItem(string reference)
         {
+            Item itemFound;
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.ConnectionValue("Admin")))
             {
-                var item = connection.Query<Item>($"SELECT * FROM DatosProducto WHERE CODIBARR = '{reference}'").First();
-                return item;
+                var item = connection.Query<Item>($"SELECT * FROM DatosProducto WHERE CODIBARR = '{reference}'");
+                if (item.Count() > 0)
+                {
+                    itemFound = item.First();
+                }
+                else
+                {
+                    throw new Exception("Lectura invalida");
+                }
+                return itemFound;
             }
         }
         public Item GetEmployee(string code)
