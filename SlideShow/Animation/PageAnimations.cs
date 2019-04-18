@@ -82,24 +82,24 @@ namespace SlideShow.Animation
             page.Visibility = Visibility.Visible;
 
             // Wait for it to finish
-            await Task.Delay((int)(seconds * 1000));
+            await Task.Delay((int)(seconds * 500));
 
 
 
-            ////Add slide from right animation
-            //sb.AddSlideToLeft(seconds, page.WindowWidth);
+            //Add slide from right animation
+            sb.AddSlideToLeft(seconds, page.WindowWidth);
 
-            ////Add fade in animation
-            //sb.AddFadeOut(seconds);
+            //Add fade in animation
+            sb.AddFadeOut(seconds);
 
-            //// Start animation 
-            //sb.Begin(page);
+            // Start animation 
+            sb.Begin(page);
 
-            //// Make page visibility
-            //page.Visibility = Visibility.Visible;
+            // Make page visibility
+            page.Visibility = Visibility.Visible;
 
-            //// Wait for it to finish
-            //await Task.Delay((int)(seconds * 500));
+            // Wait for it to finish
+            await Task.Delay((int)(seconds * 0));
         }
     }
 }

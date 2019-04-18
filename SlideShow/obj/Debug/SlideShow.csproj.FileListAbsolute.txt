@@ -30,7 +30,6 @@ C:\Users\gfajardo\Source\Repos\Ads\SlideShow\bin\Debug\AvalonLibrary.dll
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\bin\Debug\Dapper.dll
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\bin\Debug\AvalonLibrary.xml
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\bin\Debug\Dapper.xml
-C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\SlideShow.csprojAssemblyReference.cache
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\MainWindow.g.cs
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\Pages\ConfigurationPage.g.cs
 C:\Users\gfajardo\Source\Repos\Ads\SlideShow\obj\Debug\Pages\AdPage.g.cs

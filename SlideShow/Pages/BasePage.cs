@@ -22,7 +22,7 @@ namespace SlideShow.Pages
         /// <summary>
         /// The time any animation takes to complete
         /// </summary>
-        public float SlideSeconds { get; set; } = 2f;
+        public float SlideSeconds { get; set; } = 4f;
         #endregion
         #region Contructor
         public BasePage()
@@ -46,7 +46,7 @@ namespace SlideShow.Pages
         /// <param name="e"></param>
         private async void BasePage_Loaded(object sender, RoutedEventArgs e)
         {
-            await AnimateIn();
+            await AnimateInOut();
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace SlideShow.Pages
             {
                 case PageAnimation.SlideAndFadeInFromRight:
 
-                    await this.SlideAndFadeInOut(this.SlideSeconds);
+                    await this.SlideAndFadeInFromRignt(this.SlideSeconds);
 
                     break;
                 
@@ -96,6 +96,28 @@ namespace SlideShow.Pages
             }
         }
 
+        /// <summary>
+        /// Animates in the page
+        /// </summary>
+        /// <returns></returns>
+        public async Task AnimateInOut()
+        {
+            //Make sure we have something to do
+            if (this.PageLoadAnimation == PageAnimation.None)
+                return;
+
+            switch (this.PageLoadAnimation)
+            {
+                case PageAnimation.SlideAndFadeInFromRight:
+
+                    await this.SlideAndFadeInOut(this.SlideSeconds);
+
+                    break;
+
+                default:
+                    break;
+            }
+        }
         #endregion
     }
 }

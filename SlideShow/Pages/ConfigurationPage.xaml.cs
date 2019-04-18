@@ -31,7 +31,7 @@ namespace SlideShow.Pages
             txtDuration.Text = SelectedDuration = ConfigurationHelper.GetAdsDuration().ToString();
         }
 
-       
+        
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -85,6 +85,12 @@ namespace SlideShow.Pages
         private void BtnPrice_Click(object sender, RoutedEventArgs e)
         {
             ((MainWindow)(this.Parent)).ShowPrice("APP123");
+        }
+
+
+        private void BasePage_Loaded_1(object sender, RoutedEventArgs e)
+        {
+            AnimateIn();
         }
     }
 }
