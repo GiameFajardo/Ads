@@ -33,6 +33,7 @@ namespace SlideShow.Pages
         }
         public AdPage(Color background, string media)
         {
+            PageLoadAnimation = Animation.PageAnimation.SlideAndFadeInFromRight;
             InitializeComponent();
             this.Background = new SolidColorBrush(background);
             this.mediaContent.Source = new Uri(media);
@@ -51,16 +52,18 @@ namespace SlideShow.Pages
         private void mediaContent_TouchDown(object sender, TouchEventArgs e)
         {
 
+            mediaContent.LoadedBehavior = MediaState.Manual;
+            mediaContent.Pause();
         }
 
         private void mediaContent_TouchUp(object sender, TouchEventArgs e)
         {
-
+            mediaContent.LoadedBehavior = MediaState.Manual;
+            mediaContent.Play();
         }
 
         private void mediaContent_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
         }
         private void mediaContent_MediaEnded(object sender, RoutedEventArgs e)
         {

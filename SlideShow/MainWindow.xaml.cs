@@ -78,7 +78,7 @@ namespace SlideShow
 
             foreach (string path in files)
             {
-                ip = new AdPage(Color.FromRgb(255, 255, 255),
+                ip = new AdPage(Color.FromRgb(54, 34, 123),
                     path);
                 ip.KeyDown += Window_KeyDown;
                 AdsPages.Add(ip);
@@ -100,7 +100,7 @@ namespace SlideShow
             catch (Exception)
             {
                 hasWrongPath = true;
-                ShowMessage("Wrong path");
+                ShowMessage("Wrong path",true);
                 mediaPositionTimer.Stop();
             }
             return files;
@@ -171,7 +171,7 @@ namespace SlideShow
                 }
                 else
                 {
-                    if (currentDuration >= defaultSeconds)
+                    if (currentDuration >= (defaultSeconds+ AdsPages[Index].SlideSeconds))
                     {
                         NextAd();
                     }
@@ -184,7 +184,7 @@ namespace SlideShow
             else
             {
                 mediaPositionTimer.Stop();
-                ShowMessage("Wrong path");
+                ShowMessage("Wrong path", true);
             }
         }
 
@@ -215,9 +215,10 @@ namespace SlideShow
             }
            
         }
-        public void ShowMessage(string message)
+        public void ShowMessage(string message, bool stop = false)
         {
             MessagePage.Message = message;
+            MessagePage.Stop = stop;
             this.Content = MessagePage;
         }
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -240,6 +241,8 @@ namespace SlideShow
                     break;
                 case Key.Enter:
                     {
+
+                        StartStopTimer();
                         var a = txtSearch.Text;
                         ShowPrice(a);
                         showingPrice = true;

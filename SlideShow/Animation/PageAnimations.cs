@@ -63,7 +63,76 @@ namespace SlideShow.Animation
             await Task.Delay((int)(seconds * 1000));
         }
 
+        /// <summary>
+        /// Fade out a page 
+        /// </summary>
+        /// <param name="page">The page to animates</param>
+        /// <param name="seconds">The time the animation will take</param>
+        /// <returns></returns>
+        public static async Task FadeOut(this Page page, float seconds)
+        {
+            //Create the storyboard
+            var sb = new Storyboard();
 
+            //Add fade in animation
+            sb.AddFadeOut(seconds);
+
+            // Start animation 
+            sb.Begin(page);
+
+            // Make page visibility
+            page.Visibility = Visibility.Visible;
+
+            // Wait for it to finish
+            await Task.Delay((int)(seconds * 1000));
+        }
+        /// <summary>
+        /// Fade a page 
+        /// </summary>
+        /// <param name="page">The page to animates</param>
+        /// <param name="seconds">The time the animation will take</param>
+        /// <returns></returns>
+        public static async Task FadeIn(this Page page, float seconds)
+        {
+            //Create the storyboard
+            var sb = new Storyboard();
+
+            //Add fade in animation
+            sb.AddFadeIn(seconds);
+
+            // Start animation 
+            sb.Begin(page);
+
+            // Make page visibility
+            page.Visibility = Visibility.Visible;
+
+            // Wait for it to finish
+            await Task.Delay((int)(seconds * 1000));
+        }
+
+        /// <summary>
+        /// Fade a page 
+        /// </summary>
+        /// <param name="page">The page to animates</param>
+        /// <param name="seconds">The time the animation will take</param>
+        /// <returns></returns>
+        public static async Task WidthOut(this Page page, float seconds)
+        {
+            //Create the storyboard
+            var sb = new Storyboard();
+
+            //Add fade in animation
+            sb.AddWithOut(seconds);
+
+            // Start animation 
+            sb.Begin(page);
+
+            // Make page visibility
+            page.Visibility = Visibility.Visible;
+
+            // Wait for it to finish
+            await Task.Delay((int)(seconds * 1000));
+        }
         public static async Task SlideAndFadeInOut(this Page page, float seconds)
         {
             //Create the storyboard
@@ -82,7 +151,7 @@ namespace SlideShow.Animation
             page.Visibility = Visibility.Visible;
 
             // Wait for it to finish
-            await Task.Delay((int)(seconds * 500));
+            await Task.Delay((int)(seconds * 1000));
 
 
 

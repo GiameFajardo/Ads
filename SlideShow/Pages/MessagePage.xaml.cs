@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace SlideShow.Pages
 {
@@ -23,26 +24,40 @@ namespace SlideShow.Pages
     public partial class MessagePage : BasePage, INotifyPropertyChanged
     {
         private string _message;// = "TEST";
+        double duration = 0d;
+        double MessageDuration = ConfigurationHelper.GetMessageDuration();
+        private DispatcherTimer mediaPositionTimer;
         public string Message {
             get { return _message; }
             set
             {
                 _message = value;
                 OnPropertyChanged("Message");
-                
+
+                duration = 0d;
+                if (mediaPositionTimer != null)
+                {
+
+                    mediaPositionTimer.Start();
+                }
             }
-        } 
+        }
+
+        public bool Stop { get; set; }
+
         public MessagePage()
         {
+            InitializeTimer();
             InitializeComponent();
             DataContext = this;
-            txtMessage.Text = Message;
+            //txtMessage.Text = Message;
         }
         public MessagePage(string message)
         {
+            InitializeTimer();
             InitializeComponent();
             DataContext = this;
-            txtMessage.Text = Message = message;
+            //txtMessage.Text = Message = message;
         }
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -57,6 +72,26 @@ namespace SlideShow.Pages
             {
                 var e = new PropertyChangedEventArgs(propertyName);
                 handler(this, e);
+            }
+        }
+        private void InitializeTimer()
+        {
+            mediaPositionTimer = new DispatcherTimer();
+
+            // Set up the timer     
+            mediaPositionTimer.Interval = TimeSpan.FromSeconds(1);
+            mediaPositionTimer.Tick += new EventHandler(positionTimerTick);
+        }
+
+        private void positionTimerTick(object sender, EventArgs e)
+        {
+            duration += 1;
+            if (duration >= MessageDuration && !Stop)
+            {
+
+                duration = 0d;
+                mediaPositionTimer.Stop();
+                ((MainWindow)(this.Parent)).ReLoadAds();
             }
         }
     }

@@ -17,16 +17,39 @@ namespace SlideShow.Pages
         {
             ChangeConfValue("AdsDuration", duration);
         }
+        public static void ChangeMessageDuration(string duration)
+        {
+            ChangeConfValue("MessageDuration", duration);
+        }
+        public static void ChangePriceDuration(string duration)
+        {
+            ChangeConfValue("PriceDuration", duration);
+        }
         public static string GetAdsPath()
         {
             var conf = GetConfigValue("FilePath");
              
             return conf;
-        }public static double GetAdsDuration()
+        }
+        public static double GetAdsDuration()
         {
             var conf = GetConfigValue("AdsDuration");
             double duration = double.Parse(conf);
             
+            return duration;
+        }
+        public static double GetMessageDuration()
+        {
+            var conf = GetConfigValue("MessageDuration");
+            double duration = double.Parse(conf);
+
+            return duration;
+        }
+        public static double GetPriceDuration()
+        {
+            var conf = GetConfigValue("PriceDuration");
+            double duration = double.Parse(conf);
+
             return duration;
         }
         private static string GetConfigValue(string key)

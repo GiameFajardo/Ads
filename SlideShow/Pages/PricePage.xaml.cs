@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace SlideShow.Pages
 {
@@ -23,6 +24,9 @@ namespace SlideShow.Pages
     /// </summary>
     public partial class PricePage : BasePage, INotifyPropertyChanged
     {
+        double duration = 0d;
+        double PriceDuration = ConfigurationHelper.GetPriceDuration();
+        private DispatcherTimer mediaPositionTimer;
         private Item _Item;
         public Item Item { get { return _Item; }
             set
@@ -57,6 +61,8 @@ namespace SlideShow.Pages
             {
                 _Price = value;
                 OnPropertyChanged();
+                duration = 0d;
+                mediaPositionTimer.Start();
             }
         }
 
@@ -69,6 +75,8 @@ namespace SlideShow.Pages
 
         public PricePage()
         {
+            InitializeTimer();
+            PageLoadAnimation = Animation.PageAnimation.SlideAndFadeInFromRight;
             InitializeComponent();
             DataContext = this;
             //Item = new Item();
@@ -86,6 +94,26 @@ namespace SlideShow.Pages
             {
                 var e = new PropertyChangedEventArgs(propertyName);
                 handler(this, e);
+            }
+        }
+        private void InitializeTimer()
+        {
+            mediaPositionTimer = new DispatcherTimer();
+
+            // Set up the timer     
+            mediaPositionTimer.Interval = TimeSpan.FromSeconds(1);
+            mediaPositionTimer.Tick += new EventHandler(positionTimerTick);
+        }
+
+        private void positionTimerTick(object sender, EventArgs e)
+        {
+            duration += 1;
+            if (duration >= PriceDuration)
+            {
+
+                duration = 0d;
+                mediaPositionTimer.Stop();
+                ((MainWindow)(this.Parent)).ReLoadAds();
             }
         }
     }

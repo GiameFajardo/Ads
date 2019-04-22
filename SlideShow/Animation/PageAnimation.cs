@@ -6,7 +6,11 @@
     public enum PageAnimation
     {
         None = 0,
-        SlideAndFadeInFromRight = 1,
-        SlideAndFadeOutToLeft = 2
+        FadeIn = 1,
+        FadeOut = 2,
+        SlideAndFadeInFromRight = 3,
+        SlideAndFadeOutToLeft = 4,
+        SlideAndFadeInOut = 5,
+        WidthOut = 6
     }
 }

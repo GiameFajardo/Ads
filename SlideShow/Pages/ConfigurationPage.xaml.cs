@@ -24,19 +24,22 @@ namespace SlideShow.Pages
     {
         public string SelectedPath { get; set; }
         public string SelectedDuration { get; set; }
+        public string SelectedMessageDuration { get; set; }
+        public string SelectedPriceDuration { get; set; }
         public ConfigurationPage()
         {
             InitializeComponent();
             txtPath.Text = SelectedPath = ConfigurationHelper.GetAdsPath();
             txtDuration.Text = SelectedDuration = ConfigurationHelper.GetAdsDuration().ToString();
+            txtMessage.Text = SelectedMessageDuration = ConfigurationHelper.GetMessageDuration().ToString();
+            txtPrice.Text = SelectedPriceDuration = ConfigurationHelper.GetPriceDuration().ToString();
         }
-
-        
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ConfigurationHelper.ChangeFilePath(SelectedPath);
             ConfigurationHelper.ChangeAdsDuration(SelectedDuration);
+            ConfigurationHelper.ChangeMessageDuration(SelectedMessageDuration);
+            ConfigurationHelper.ChangePriceDuration(SelectedPriceDuration);
             ((MainWindow)(this.Parent)).ReLoadAds();
             //this.AnimateOut();
             //((MainWindow)(this.Parent)).StartStopTimer();
@@ -87,10 +90,14 @@ namespace SlideShow.Pages
             ((MainWindow)(this.Parent)).ShowPrice("APP123");
         }
 
-
-        private void BasePage_Loaded_1(object sender, RoutedEventArgs e)
+        private void TxtPrice_KeyUp(object sender, KeyEventArgs e)
         {
-            AnimateIn();
+            SelectedPriceDuration = txtPrice.Text;
+        }
+
+        private void TxtMessage_KeyUp(object sender, KeyEventArgs e)
+        {
+            SelectedMessageDuration = txtMessage.Text;
         }
     }
 }

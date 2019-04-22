@@ -101,5 +101,27 @@ namespace SlideShow.Animation
             storyBoard.Children.Add(animation);
 
         }
+
+        /// <summary>
+        /// adds a fade in animation to the storyboard
+        /// </summary>
+        /// <param name="storyBoard">The storyboard to add the animaton</param>
+        /// <param name="seconds">The time the animation will take</param>
+        public static void AddWithOut(this Storyboard storyBoard, float seconds)
+        {
+            // Creates the margin animates from right
+            var animation = new DoubleAnimation
+            {
+                Duration = new Duration(TimeSpan.FromSeconds(seconds)),
+                From = 0,
+                To = 1
+            };
+            // Set the target property name
+            Storyboard.SetTargetProperty(animation, new PropertyPath("Width"));
+
+            // Add this to the storyboard
+            storyBoard.Children.Add(animation);
+
+        }
     }
 }
