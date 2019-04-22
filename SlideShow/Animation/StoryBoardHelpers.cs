@@ -69,7 +69,7 @@ namespace SlideShow.Animation
             var animation = new DoubleAnimation
             {
                 Duration = new Duration(TimeSpan.FromSeconds(seconds)),
-                From = 0,
+                From = 0.5,
                 To = 1
             };
             // Set the target property name

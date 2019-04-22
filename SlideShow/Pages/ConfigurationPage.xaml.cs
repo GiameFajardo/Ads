@@ -28,6 +28,7 @@ namespace SlideShow.Pages
         public string SelectedPriceDuration { get; set; }
         public ConfigurationPage()
         {
+            PageLoadAnimation = Animation.PageAnimation.FadeIn;
             InitializeComponent();
             txtPath.Text = SelectedPath = ConfigurationHelper.GetAdsPath();
             txtDuration.Text = SelectedDuration = ConfigurationHelper.GetAdsDuration().ToString();

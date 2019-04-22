@@ -14,7 +14,7 @@
         <StackPanel Orientation="Vertical"
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Center">
-            <TextBlock Style="{StaticResource ItemDescription}"
+            <TextBlock Style="{StaticResource ItemDescription}" Margin="50,0,50,0" TextAlignment="Center"
                        Text="{Binding ItemDescription, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap"/>
             <StackPanel Orientation="Vertical" 
                     HorizontalAlignment="Center" 

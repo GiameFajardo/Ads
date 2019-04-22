@@ -40,6 +40,11 @@ namespace SlideShow.Pages
 
                     mediaPositionTimer.Start();
                 }
+                if (this.Parent != null)
+                {
+
+                    ((MainWindow)this.Parent).CleanField();
+                }
             }
         }
 
@@ -47,6 +52,7 @@ namespace SlideShow.Pages
 
         public MessagePage()
         {
+            PageLoadAnimation = Animation.PageAnimation.FadeIn;
             InitializeTimer();
             InitializeComponent();
             DataContext = this;
@@ -54,6 +60,7 @@ namespace SlideShow.Pages
         }
         public MessagePage(string message)
         {
+            PageLoadAnimation = Animation.PageAnimation.FadeIn;
             InitializeTimer();
             InitializeComponent();
             DataContext = this;
@@ -91,7 +98,11 @@ namespace SlideShow.Pages
 
                 duration = 0d;
                 mediaPositionTimer.Stop();
-                ((MainWindow)(this.Parent)).ReLoadAds();
+                if (this.Parent != null)
+                {
+
+                    ((MainWindow)(this.Parent)).ReLoadAds();
+                }
             }
         }
     }

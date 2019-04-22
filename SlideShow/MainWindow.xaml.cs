@@ -34,7 +34,7 @@ namespace SlideShow
         private DispatcherTimer mediaPositionTimer;
         private bool _is_playing;
         private bool hasWrongPath = false;
-        private bool showingPrice;
+        private bool showingPrice { get; set; }
 
         public List<AdPage> AdsPages { get; set; }
         public ConfigurationPage ConfigurationPage { get; set; }
@@ -50,8 +50,11 @@ namespace SlideShow
             txtSearch.Focus();
              
             ConfigurationPage = new ConfigurationPage();
+            ConfigurationPage.KeyDown += Window_KeyDown;
             MessagePage = new MessagePage();
+            MessagePage.KeyDown += Window_KeyDown;
             PricePage = new PricePage();
+            PricePage.KeyDown += Window_KeyDown;
             defaultSeconds = ConfigurationHelper.GetAdsDuration();
             LoadAds();
 
@@ -78,7 +81,7 @@ namespace SlideShow
 
             foreach (string path in files)
             {
-                ip = new AdPage(Color.FromRgb(54, 34, 123),
+                ip = new AdPage(Color.FromArgb(0,0,0,0),
                     path);
                 ip.KeyDown += Window_KeyDown;
                 AdsPages.Add(ip);
@@ -120,9 +123,16 @@ namespace SlideShow
             LoadAds();
         }
 
+        public void StopTimer()
+        {
+
+            mediaPositionTimer.Stop();
+            _is_playing = false;
+            
+        }
         public void StartStopTimer()
         {
-                
+
             if (!_is_playing)
             {
                 mediaPositionTimer.Start();
@@ -134,7 +144,7 @@ namespace SlideShow
                 _is_playing = false;
             }
         }
-        
+
         public void NextAd()
         {
             showingPrice = false;
@@ -239,17 +249,36 @@ namespace SlideShow
                         ReLoadAds();
                     }
                     break;
+                case Key.F7:
+                    {
+                        FullScreen();
+                    }
+                    break;
                 case Key.Enter:
                     {
-
-                        StartStopTimer();
+                        StopTimer();
                         var a = txtSearch.Text;
                         ShowPrice(a);
+                        CleanField();
                         showingPrice = true;
                     }
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void FullScreen()
+        {
+            if (this.WindowState == WindowState.Maximized)
+            {
+                this.WindowState = WindowState.Normal;
+                this.WindowStyle = WindowStyle.SingleBorderWindow;
+            }
+            else
+            {
+                this.WindowState = WindowState.Maximized;
+                this.WindowStyle = WindowStyle.None;
             }
         }
 
@@ -262,18 +291,31 @@ namespace SlideShow
 
         private void Window_TextInput(object sender, TextCompositionEventArgs e)
             {
-            if (showingPrice)
+            if (e.Text == "\r")
             {
-
-                txtSearch.Text = string.Empty;
+                CleanField();
             }
             else
             {
 
                 txtSearch.Text += e.Text;
             }
+            //if (showingPrice)
+            //{
+
+            //    txtSearch.Text = string.Empty;
+            //}
+            //else
+            //{
+
+            //}
 
 
+        }
+        public void CleanField()
+        {
+
+            txtSearch.Text = string.Empty;
         }
     }
 }

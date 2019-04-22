@@ -63,6 +63,11 @@ namespace SlideShow.Pages
                 OnPropertyChanged();
                 duration = 0d;
                 mediaPositionTimer.Start();
+                if (this.Parent != null)
+                {
+
+                    //((MainWindow)this.Parent).CleanField();
+                }
             }
         }
 
@@ -76,7 +81,7 @@ namespace SlideShow.Pages
         public PricePage()
         {
             InitializeTimer();
-            PageLoadAnimation = Animation.PageAnimation.SlideAndFadeInFromRight;
+            PageLoadAnimation = Animation.PageAnimation.FadeIn;
             InitializeComponent();
             DataContext = this;
             //Item = new Item();
@@ -113,7 +118,10 @@ namespace SlideShow.Pages
 
                 duration = 0d;
                 mediaPositionTimer.Stop();
-                ((MainWindow)(this.Parent)).ReLoadAds();
+                if (this.Parent != null)
+                {
+                    ((MainWindow)(this.Parent)).ReLoadAds();
+                }
             }
         }
     }

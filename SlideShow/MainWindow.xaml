@@ -8,7 +8,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         KeyDown="Window_KeyDown" TextInput="Window_TextInput"
-        Background="Pink">
+        >
+    <Window.Resources>
+        <ResourceDictionary Source="/Styles/ImagesStyles.xaml"/>
+    </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="{StaticResource cloud2}" Stretch="Uniform" 
+                    TileMode="FlipY"  AlignmentY="Top" Viewport="0,0,220,220" ViewportUnits="Absolute" />
+    </Window.Background>
     <Grid>
         
         <TextBox x:Name="txtSearch" Visibility="Collapsed" 
