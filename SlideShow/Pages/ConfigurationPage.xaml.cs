@@ -26,6 +26,7 @@ namespace SlideShow.Pages
         public string SelectedDuration { get; set; }
         public ConfigurationPage()
         {
+            PageLoadAnimation = Animation.PageAnimation.SlideAndFadeInFromRight;
             InitializeComponent();
             txtPath.Text = SelectedPath = ConfigurationHelper.GetAdsPath();
             txtDuration.Text = SelectedDuration = ConfigurationHelper.GetAdsDuration().ToString();
@@ -88,9 +89,9 @@ namespace SlideShow.Pages
         }
 
 
-        private void BasePage_Loaded_1(object sender, RoutedEventArgs e)
-        {
-            AnimateIn();
-        }
+    //    private void BasePage_Loaded_1(object sender, RoutedEventArgs e)
+    //    {
+    //        AnimateIn();
+    //    }
     }
 }

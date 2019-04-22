@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
+using System.Windows.Navigation;
 
 namespace SlideShow.Pages
 {
@@ -46,9 +47,12 @@ namespace SlideShow.Pages
         /// <param name="e"></param>
         private async void BasePage_Loaded(object sender, RoutedEventArgs e)
         {
-            await AnimateInOut();
+            await AnimateIn();
         }
-
+        public async void BasePage_Navigated(object sender, NavigationEventArgs e)
+        {
+            await AnimateIn();
+        }
         /// <summary>
         /// Animates in the page
         /// </summary>
@@ -66,7 +70,12 @@ namespace SlideShow.Pages
                     await this.SlideAndFadeInFromRignt(this.SlideSeconds);
 
                     break;
-                
+                case PageAnimation.SlideAndFadeInAndOut:
+
+                    await this.SlideAndFadeInOut(this.SlideSeconds);
+
+                    break;
+
                 default:
                     break;
             }
@@ -100,7 +109,7 @@ namespace SlideShow.Pages
         /// Animates in the page
         /// </summary>
         /// <returns></returns>
-        public async Task AnimateInOut()
+        public async Task AnimateInWaitOut()
         {
             //Make sure we have something to do
             if (this.PageLoadAnimation == PageAnimation.None)
@@ -108,7 +117,7 @@ namespace SlideShow.Pages
 
             switch (this.PageLoadAnimation)
             {
-                case PageAnimation.SlideAndFadeInFromRight:
+                case PageAnimation.SlideAndFadeInAndOut:
 
                     await this.SlideAndFadeInOut(this.SlideSeconds);
 

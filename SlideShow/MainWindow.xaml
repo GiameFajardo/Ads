@@ -8,12 +8,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         KeyDown="Window_KeyDown" TextInput="Window_TextInput">
-    <Grid>
+    <Grid Background="Pink">
         
         <TextBox x:Name="txtSearch" Visibility="Collapsed" 
                  PreviewTextInput="TxtSearch_PreviewTextInput"
                  HorizontalAlignment="Left" Height="23" Margin="211,277,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <ContentControl x:Name="Container" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-
+        <!--<Frame x:Name="mainFrame" Background="Green"/>-->
     </Grid>
 </Window>

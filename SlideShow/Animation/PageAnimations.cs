@@ -82,7 +82,7 @@ namespace SlideShow.Animation
             page.Visibility = Visibility.Visible;
 
             // Wait for it to finish
-            await Task.Delay((int)(seconds * 500));
+            await Task.Delay((int)(seconds * 1000));
 
 
 

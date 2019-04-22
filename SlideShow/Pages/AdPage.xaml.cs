@@ -33,10 +33,14 @@ namespace SlideShow.Pages
         }
         public AdPage(Color background, string media)
         {
+
+            PageLoadAnimation = Animation.PageAnimation.SlideAndFadeInAndOut;
             InitializeComponent();
             this.Background = new SolidColorBrush(background);
             this.mediaContent.Source = new Uri(media);
         }
+        
+        
         private void mediaContent_BufferingEnded(object sender, RoutedEventArgs e)
         {
             this.mediaContent.LoadedBehavior = MediaState.Manual;

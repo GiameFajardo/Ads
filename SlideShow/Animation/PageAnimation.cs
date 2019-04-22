@@ -7,6 +7,7 @@
     {
         None = 0,
         SlideAndFadeInFromRight = 1,
-        SlideAndFadeOutToLeft = 2
+        SlideAndFadeOutToLeft = 2,
+        SlideAndFadeInAndOut = 3
     }
 }
