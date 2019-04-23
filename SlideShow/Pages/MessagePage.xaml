@@ -5,15 +5,23 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SlideShow.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="1024" d:DesignWidth="1280"
       Title="MessagePage"
       DataContext="{RelativeSource Self}">
+    <Page.Resources>
+        <ResourceDictionary Source="/Styles/ImagesStyles.xaml"/>
+    </Page.Resources>
 
+    <Page.Background>
+        <ImageBrush ImageSource="{StaticResource blue2}" Stretch="Fill" 
+                    TileMode="FlipY" />
+    </Page.Background>
     <Grid>
-        <TextBlock x:Name="txtMessage" 
-                   HorizontalAlignment="Stretch" TextAlignment="Center" 
-                   VerticalAlignment="Center" TextWrapping="Wrap" FontSize="30"
-                   Text="{Binding Path=Message, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+        <TextBlock x:Name="txtMessage"  
+                   HorizontalAlignment="Stretch" TextAlignment="Center" Margin="557,274,287,489"
+                   VerticalAlignment="Center" TextWrapping="Wrap" FontSize="50" Foreground="Black"
+                   FontFamily="Museo"
+                   Text="{Binding Path=Message, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Height="261"/>
 
     </Grid>
 </local:BasePage>

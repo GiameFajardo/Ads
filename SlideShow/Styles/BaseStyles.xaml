@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:SlideShow.Styles">
+
+    <Style x:Name="FontBase" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Fonts/MuseoSans_500.otf#Din Museo Sans 500"/>
+
+    </Style>
+</ResourceDictionary>

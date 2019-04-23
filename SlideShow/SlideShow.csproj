@@ -96,6 +96,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\BaseStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\ImagesStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -137,6 +141,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Fonts\MuseoSans_500.otf" />
     <None Include="packages.config" />
     <None Include="PathConfig.config" />
     <None Include="PathConfig.json" />
@@ -156,6 +161,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\cloudbg2.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bluetells.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bluetells2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\plain.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -15,14 +15,22 @@ namespace SlideShow.Context
             Item itemFound;
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.ConnectionValue("Admin")))
             {
-                var item = connection.Query<Item>($"SELECT * FROM DatosProducto WHERE CODIBARR = '{reference}'");
+                var item = connection.Query<Item>($"SELECT * FROM DatosProducto WHERE REFEARTI = '{reference}'");
                 if (item.Count() > 0)
                 {
                     itemFound = item.First();
                 }
                 else
                 {
-                    throw new Exception("Lectura invalida");
+                    item = connection.Query<Item>($"SELECT * FROM DatosProducto WHERE CODIBARR = '{reference}'");
+                    if (item.Count() > 0)
+                    {
+                        itemFound = item.First();
+                    }
+                    else
+                    {
+                        throw new Exception("Lectura invalida");
+                    }
                 }
                 return itemFound;
             }

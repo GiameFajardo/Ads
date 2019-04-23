@@ -34,6 +34,20 @@ namespace SlideShow.Pages
                 Price = double.Parse(value.PRECCRED);
                 OldPrice = double.Parse(value.PRECCONT);
                 ItemDescription = value.DESCARTI;
+                LevelTwoPrice = double.Parse(value.PRECNIV2);
+
+                if (Price> LevelTwoPrice && LevelTwoPrice > 0)
+                {
+                    PriceToShow = value.PRECNIV2;
+                    OldPriceToShow = value.PRECCONT;
+                    OldPriceVisibility = Visibility.Visible;
+                }
+                else if (Price == LevelTwoPrice && LevelTwoPrice > 0)
+                {
+                    Price = double.Parse(value.PRECCRED);
+                    OldPriceVisibility = Visibility.Collapsed;
+                }
+
                 _Item = value;
                 OnPropertyChanged();
             }
@@ -60,14 +74,31 @@ namespace SlideShow.Pages
             set
             {
                 _Price = value;
+                PriceToShow = value.ToString();
                 OnPropertyChanged();
                 duration = 0d;
                 mediaPositionTimer.Start();
-                if (this.Parent != null)
-                {
 
-                    //((MainWindow)this.Parent).CleanField();
-                }
+            }
+        }
+
+        private string _priceToShow;
+        public string PriceToShow
+        {
+            get { return _priceToShow; }
+            set { _priceToShow = String.Format("{0:#,0.00}", Convert.ToDecimal(value)); 
+                OnPropertyChanged();
+            }
+        }
+
+        private string _oldPriceToShow;
+        public string OldPriceToShow
+        {
+            get { return _oldPriceToShow; }
+            set
+            {
+                _oldPriceToShow = String.Format("{0:#,0.00}", Convert.ToDecimal(value));
+                OnPropertyChanged();
             }
         }
 
@@ -76,6 +107,21 @@ namespace SlideShow.Pages
         {
             get { return _OldPrice; }
             set { _OldPrice = value; OnPropertyChanged(); }
+        }
+        private double _LevelTwoPrice = 0d;
+        public double LevelTwoPrice
+        {
+            get { return _LevelTwoPrice; }
+            set { _LevelTwoPrice = value; OnPropertyChanged(); }
+        }
+        private Visibility _oldPriceVisibility;
+
+        public Visibility OldPriceVisibility
+        {
+            get { return _oldPriceVisibility; }
+            set { _oldPriceVisibility = value;
+                OnPropertyChanged();
+            }
         }
 
         public PricePage()

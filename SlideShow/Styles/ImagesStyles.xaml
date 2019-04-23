@@ -3,4 +3,7 @@
                     xmlns:local="clr-namespace:SlideShow.Styles">
     <BitmapImage x:Key="cloud1" UriSource="../Images/cloud5.PNG" />
     <BitmapImage x:Key="cloud2" UriSource="../Images/cloudbg2.PNG" />
+    <BitmapImage x:Key="blue" UriSource="../Images/bluetells.PNG" />
+    <BitmapImage x:Key="blue2" UriSource="../Images/bluetells2.PNG" />
+    <BitmapImage x:Key="plain" UriSource="../Images/plain.PNG" />
 </ResourceDictionary>

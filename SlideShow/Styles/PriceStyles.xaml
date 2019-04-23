@@ -2,14 +2,20 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:SlideShow.Styles">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ImagesStyles.xaml"/>
+        <ResourceDictionary Source="BaseStyles.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
     <Style x:Key="ItemDescription" TargetType="TextBlock">
         <Setter Property="FontSize" Value="50"/>
-        <Setter Property="FontWeight" Value="DemiBold"/>
-        <Setter Property="Foreground" Value="Black"/>
+        <!--<Setter Property="FontWeight" Value="DemiBold"/>-->
+        <!--<Setter Property="Foreground" Value="Black"/>-->
+        <Setter Property="FontFamily" Value="museo-sans, sans-serif;"/>
+
     </Style>
     <Style x:Key="Price" TargetType="TextBlock">
         <Setter Property="FontSize" Value="50"/>
-        <Setter Property="FontWeight" Value="ExtraBold"/>
+        <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="Foreground" Value="blue"/>
     </Style>
     <Style x:Key="OldPrice" TargetType="TextBlock">

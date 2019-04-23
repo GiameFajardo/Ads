@@ -68,7 +68,7 @@ namespace SlideShow.Animation
             // Creates the margin animates from right
             var animation = new DoubleAnimation
             {
-                Duration = new Duration(TimeSpan.FromSeconds(seconds)),
+                Duration = new Duration(TimeSpan.FromSeconds(seconds/3)),
                 From = 0.5,
                 To = 1
             };
