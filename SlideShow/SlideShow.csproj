@@ -142,6 +142,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Resource Include="Fonts\MuseoSans_500.otf" />
+    <Resource Include="Fonts\Museo500-Regular.otf" />
     <None Include="packages.config" />
     <None Include="PathConfig.config" />
     <None Include="PathConfig.json" />

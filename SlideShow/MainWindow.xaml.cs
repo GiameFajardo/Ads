@@ -128,7 +128,14 @@ namespace SlideShow
 
             mediaPositionTimer.Stop();
             _is_playing = false;
-            
+
+        }
+        public void PlayTimer()
+        {
+
+            mediaPositionTimer.Start();
+            _is_playing = false;
+
         }
         public void StartStopTimer()
         {

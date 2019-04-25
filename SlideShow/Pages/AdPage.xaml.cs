@@ -51,13 +51,14 @@ namespace SlideShow.Pages
 
         private void mediaContent_TouchDown(object sender, TouchEventArgs e)
         {
-
+            ((MainWindow)this.Parent).StopTimer();
             mediaContent.LoadedBehavior = MediaState.Manual;
             mediaContent.Pause();
         }
 
         private void mediaContent_TouchUp(object sender, TouchEventArgs e)
         {
+            ((MainWindow)this.Parent).PlayTimer();
             mediaContent.LoadedBehavior = MediaState.Manual;
             mediaContent.Play();
         }

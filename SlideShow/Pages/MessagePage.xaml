@@ -20,7 +20,7 @@
         <TextBlock x:Name="txtMessage"  
                    HorizontalAlignment="Stretch" TextAlignment="Center" Margin="557,274,287,489"
                    VerticalAlignment="Center" TextWrapping="Wrap" FontSize="50" Foreground="Black"
-                   FontFamily="Museo"
+                   FontFamily="/SlideShow;component/Fonts/#Museo 500"
                    Text="{Binding Path=Message, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Height="261"/>
 
     </Grid>
