@@ -11,7 +11,7 @@
         <ResourceDictionary Source="../Styles/PriceStyles.xaml"/>
     </Page.Resources>
     <Page.Background>
-        <ImageBrush ImageSource="{StaticResource plain}" Stretch="UniformToFill"  AlignmentY="Bottom"
+        <ImageBrush ImageSource="{StaticResource price}" Stretch="UniformToFill"  AlignmentY="Bottom"
                     />
     </Page.Background>
     <Grid>
@@ -19,14 +19,14 @@
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Center">
             <TextBlock Style="{StaticResource ItemDescription}" FontFamily="/SlideShow;component/Fonts/#Museo 500"
-                       Margin="50,0,50,0" TextAlignment="Center"
+                       Margin="120,0,50,50" TextAlignment="Center"
                        Text="{Binding ItemDescription, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap"/>
             <StackPanel Orientation="Vertical" 
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Center">
 
                 <TextBlock Style="{StaticResource OldPrice}" 
-                       HorizontalAlignment="Center" VerticalAlignment="Top"
+                       HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,20"
                        TextWrapping="Wrap" Visibility="{Binding OldPriceVisibility}"
                        Text="{Binding OldPriceToShow, UpdateSourceTrigger=PropertyChanged}" FontFamily="/SlideShow;component/Fonts/#Museo 500" />
                 <TextBlock Style="{StaticResource Price}"  

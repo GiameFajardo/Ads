@@ -5,5 +5,7 @@
     <BitmapImage x:Key="cloud2" UriSource="../Images/cloudbg2.PNG" />
     <BitmapImage x:Key="blue" UriSource="../Images/bluetells.PNG" />
     <BitmapImage x:Key="blue2" UriSource="../Images/bluetells2.PNG" />
-    <BitmapImage x:Key="plain" UriSource="../Images/plain.PNG" />
+    <BitmapImage x:Key="plain" UriSource="../Images/plain.PNG" /> 
+    <BitmapImage x:Key="price" UriSource="../Images/Precios01.jpg" />
+    <BitmapImage x:Key="mensaje" UriSource="../Images/Mensaje.jpg" />
 </ResourceDictionary>

@@ -144,8 +144,6 @@
     <Resource Include="Fonts\MuseoSans_500.otf" />
     <Resource Include="Fonts\Museo500-Regular.otf" />
     <None Include="packages.config" />
-    <None Include="PathConfig.config" />
-    <None Include="PathConfig.json" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -171,6 +169,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\plain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Precios01.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Mensaje.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
